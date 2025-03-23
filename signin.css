@@ -1,0 +1,322 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-left span {
+    font-size: 14px;
+    color: #666;
+}
+
+.header-right nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.header-right nav a.active {
+    color: #2575fc;
+}
+
+b{
+    color: black;
+}
+
+/* Main Content Styles */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+img{
+    padding-top: 100px;
+    height: 60%;
+    width: auto;
+}
+
+.image {
+    float: left;
+    width: 100%;
+    max-width: 500px;
+    align-items: center;
+}
+
+.form-container {
+    padding: 40px;
+    float: right;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.form-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+}
+
+.logo {
+    width: 80px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+p {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 1rem;
+}
+
+input::placeholder, select::placeholder {
+    color: #ccc;
+}
+
+.btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: #2575fc;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #1b5fd9;
+}
+
+.form-footer {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.form-footer a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn {
+    width: 100%;
+    background: rgb(255, 21, 0);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #1b5fd9;
+}
+
+.social-signup {
+    margin-top: 5px;
+    width: 100%;
+    font-size: 14px;
+    color: #666;
+    border-radius: 5px;
+    border: solid #333 1.5px;
+    cursor: pointer;
+}
+
+.login-link {
+    font-size: 14px;
+    color: #666;
+}
+
+.login-link a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+/* Footer Styles */
+.footer {
+    background: #fff;
+    padding: 40px 20px 20px;
+    border-top: 1px solid #ddd;
+    text-align: left;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+.footer-left h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-left p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 10px;
+}
+
+.subscribe-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+    font-size: 14px;
+}
+
+.subscribe-form button {
+    padding: 10px 20px;
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.footer-right {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-section a, .footer-section p {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.footer-section a:hover {
+    color: #2575fc;
+}
+
+.app-stores {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+}
+
+.app-stores img {
+    padding-top: 0px;
+    width: 100px;
+    height: min-content;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    width: 100%;
+}

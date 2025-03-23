@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Order Page</title>
+    <link rel="stylesheet" href="signin.css">
+    <style>
+        .order-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .order-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .order-item h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .order-item p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .total {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .buy-now-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #2575fc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #1b5fd9;
+        }
+
+        .payment-details {
+            margin-top: 20px;
+        }
+
+        .payment-details label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .payment-details input,
+        .payment-details select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .coupon-section {
+            margin-top: 20px;
+        }
+
+        .coupon-section input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .coupon-section button {
+            width: 25%;
+            padding: 10px;
+            background-color: #2575fc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .coupon-section button:hover {
+            background-color: #1b5fd9;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-left">
+            <span><b>SurgiCareHub</b><br>Join MediPay to streamline medical procurement and payments.</span>
+        </div>
+        <div class="header-right">
+            <nav>
+                <a href="Home.html">Home</a>
+                <a href="#">Contact</a>
+                <a href="#">About</a>
+                <a href="index.html" class="active">My account</a>
+                <a href="cart.html" id="cart-link" class="logout">Cart <span id="cart-count">0</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <h2 style="text-align: center; margin-top: 20px;">Your Order</h2>
+    <div class="order-container" id="order-container">
+        <p id="empty-cart-message">Your cart is empty.</p>
+    </div>
+
+    <div class="payment-details">
+        <h3>Payment Details</h3>
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" placeholder="Enter your card number">
+
+        <label for="expiry-date">Expiry Date</label>
+        <input type="text" id="expiry-date" placeholder="MM/YY">
+
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" placeholder="CVV">
+
+        <label for="payment-method">Payment Method</label>
+        <select id="payment-method">
+            <option value="">Select Payment Method</option>
+            <option value="credit-card">Credit Card</option>
+            <option value="debit-card">Debit Card</option>
+            <option value="paypal">PayPal</option>
+        </select>
+    </div>
+
+    <div class="coupon-section">
+        <h3>Apply Coupon</h3>
+        <input type="text" id="coupon-code" placeholder="Enter coupon code">
+        <button onclick="applyCoupon()">Apply</button>
+    </div>
+
+    <button class="buy-now-btn" onclick="placeOrder()">Buy Now</button>
+
+    <footer>
+        <p>&copy; 2024 SurgiCareHub</p>
+    </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function renderCart() {
+            const orderContainer = document.getElementById('order-container');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+
+            orderContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                emptyCartMessage.style.display = 'block';
+                return;
+            }
+
+            emptyCartMessage.style.display = 'none';
+
+            cart.forEach((item, index) => {
+                const orderItem = document.createElement('div');
+                orderItem.className = 'order-item';
+                orderItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p>Price: ₹${item.price}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    </div>
+                `;
+                orderContainer.appendChild(orderItem);
+            });
+
+            const total = cart.reduce((sum, item) => sum + parseFloat(item.price) * item.quantity, 0);
+            const totalDiv = document.createElement('div');
+            totalDiv.className = 'total';
+            totalDiv.innerHTML = `<h3>Total: ₹${total}</h3>`;
+            orderContainer.appendChild(totalDiv);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function applyCoupon() {
+            const couponCode = document.getElementById('coupon-code').value;
+            if (couponCode === "DISCOUNT10") {
+                alert('Coupon applied! You got a 10% discount.');
+                // Apply discount logic here if needed
+            } else {
+                alert('Invalid coupon code.');
+            }
+        }
+
+        function placeOrder() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            const paymentMethod = document.getElementById('payment-method').value;
+            if (!paymentMethod) {
+                alert('Please select a payment method.');
+                return;
+            }
+
+            alert('Order placed successfully!');
+            localStorage.removeItem('cart');
+            window.location.href = '/user-dashboard';
+        }
+
+        renderCart();
+    </script>
+</body>
+
+</html>

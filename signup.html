@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="signin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-left">
+                <span><b>SurgiCareHub</b><br>Join MediPay to streamline medical procurement and payments.</span>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <a href="Home">Home</a>
+                    <a href="#">Contact</a>
+                    <a href="#">About</a>
+                    <!--a href="#" class="active">Sign Up</a-->
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="image">
+                <img src="./image.png" alt="SurgiCareHub Image">
+            </div>
+            <div class="form-container">
+                <h1>Create an account</h1>
+                <p>Enter your details below</p>
+                <form id="signup-form" action="Home.html">
+                    <div class="input-group">
+                        <label for="org-name">Name of your organization</label>
+                        <input type="text" id="org-name" name="org-name" placeholder="Enter organization name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email ID</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Create a password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="org-type">Type of your organization</label>
+                        <select id="org-type" name="org-type" required>
+                            <option value="hospital">Hospital</option>
+                            <option value="vendor">Vendor</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="gst">GST Number</label>
+                        <input type="text" id="gst" name="gst" placeholder="Enter GST number" required>
+                    </div>
+                    <button type="submit" class="btn">Create Account</button>
+                </form>
+                <div class="social-signup">
+                    <p>Sign up with Google</p>
+                </div>
+                <div class="login-link">
+                    <p>Already have an account? <a href="login.html">Login</a></p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>Exclusive</h3>
+                    <p>Subscribe to get 50% off your first order</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <p>Email: exclusive@gmail.com</p>
+                        <p>Phone: +88205-88888-9999</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Account</h4>
+                        <a href="index.html">My Account</a>
+                        <a href="login.html">Login / Register</a>
+                        <a href="#">Cart</a>
+                        <a href="#">Wishlist</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms Of Use</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Download App</h4>
+                        <p>Save $3 with the app</p>
+                        <div class="app-stores">
+                            <!--a href="#"><img src="app-store.png" alt="App Store"></a-->
+                            <a href="#"><img src="https://thumbs.dreamstime.com/b/google-play-app-store-icons-editable-vector-illustration-isolated-white-background-ai-illustration-google-play-app-store-177051825.jpg" alt="Google Play"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © Since 2022. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="signin.js"></script>
+</body>
+
+</html>
